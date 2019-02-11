@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hop</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:300,400"
+      rel="stylesheet"
+    />
+    <link href="public/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="header"><div class="pad-list" id="pad_list"></div></div>
+      <div class="body">
+        <div class="left">
+          <img
+            src="public/play-button.svg"
+            id="play_button"
+            width="50"
+            alt="Play"
+          />
+          <div class="bpm_panel">
+            <span id="bpm_value">200</span> <span>bpm</span>
+          </div>
+          <div class="bpm_panel_settings">
+            <img
+              src="public/minus.svg"
+              onclick="decrementBpm()"
+              alt="Minus"
+              width="12"
+            />
+            <img
+              src="public/plus.svg"
+              onclick="incrementBpm()"
+              alt="Plus"
+              width="12"
+            />
+          </div>
+        </div>
+        <div class="setting_synth">
+          <label>Synth Type</label>
+          <select id="synth_type">
+            <option value="Synth">Synth</option>
+            <option value="MonoSynth">MonoSynth</option>
+            <option value="FMSynth">FMSynth</option>
+            <option value="AMSynth">AMSynth</option>
+          </select>
+          
+          <label>Oscillator Type</label>
+          <select id="oscillator_type">
+            <option value="sine">Sine</option>
+            <option value="square">Square</option>
+            <option value="triangle">Triangle</option>
+            <option value="sawtooth">Sawtooth</option>
+          </select>
+
+          <label>Envelope Attack</label>
+          <input type="number" step="0.01" value="0.001" id="envelope_attack"/>
+
+          <label>Envelope Decay</label>
+          <input type="number" step="0.1" value="0.1" id="envelope_decay"/>
+
+          <label>Envelope Sustain</label>
+          <input type="number" step="0.1" value="0.9" id="envelope_sustain"/>
+
+          <label>Visualization</label>
+          <select id="visualization">
+            <option value="spiral">Spiral</option>
+            <option value="wave">Wave</option>
+          </select>
+
+          <label>Bpm Range</label>
+          <input type="range" id="range_bpm_value" value="120" step="5" min="60" max="300"/>
+        </div>
+        <div class="right" id="grid_body">
+          <div class="grid" id="grid"></div>
+          <canvas id="audio_visualization"></canvas>
+        </div>
+        <div class="pad_options" id="options">
+          <label>Duration</label>
+          <input type="text" id="duration" />
+          <div class="hover-water" id="btn_save"><span>Save</span></div>
+        </div>
+      </div>
+    </div>
+    <script src="public/Tone.min.js"></script>
+    <script src="utils/utils.js"></script>
+    <script src="models/Synth.js"></script>
+    <script src="models/Pad.js"></script>
+    <script src="components/Synth.js"></script>
+    <script src="components/Grid.js"></script>
+    <script src="components/Pads.js"></script>
+    <script src="components/PlayButton.js"></script>
+    <script src="components/Visualiser.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

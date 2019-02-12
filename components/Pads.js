@@ -12,6 +12,7 @@ function renderPads() {
 
 function addNoteIntoGrid(note) {
   let selected_pad_areas = board.cells.filter(x => x.selected == true);
+  triggerSynth(note.note, note.duration)
   if (!selected_pad_areas) {
     return;
   }

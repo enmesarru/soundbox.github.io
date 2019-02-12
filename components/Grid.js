@@ -47,6 +47,7 @@ function saveOptions() {
     return false;
   } else {
     board.cells[id].pad.duration = duration_field.value;
+    duration_field.value = null;
   }
 }
 
